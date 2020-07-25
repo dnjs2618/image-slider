@@ -49,6 +49,19 @@
           slideItems[0].classList.add(SHOWING_CLASS);
         }
       }
+
+      leftBtn.addEventListener("click", leftBtnHandler);
+      function leftBtnHandler() {
+        const currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+        const previousSlide = currentSlide.previousElementSibling;
+        if (previousSlide) {
+          currentSlide.classList.remove(SHOWING_CLASS);
+          previousSlide.classList.add(SHOWING_CLASS);
+        } else {
+          currentSlide.classList.remove(SHOWING_CLASS);
+          slideItems[12].classList.add(SHOWING_CLASS);
+        }
+      }
     </script>
   </body>
 </html>
