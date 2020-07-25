@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImageSlider</title>
+    <link rel="stylesheet" href="slide.css" />
+    <link rel="stylesheet" href="image.css" />
+  </head>
+  <body>
+    <div id="slider">
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+      <div class="slide_item"></div>
+    </div>
+    <button class="slide_left-btn btn"><</button>
+    <button class="slide_right-btn btn">></button>
+    <script>
+      const SHOWING_CLASS = "showing";
+      const slideItems = document.querySelectorAll(".slide_item");
+      const leftBtn = document.querySelector(".slide_left-btn");
+      const rightBtn = document.querySelector(".slide_right-btn");
+      if (slideItems) {
+        slideItems[0].classList.add(SHOWING_CLASS);
+      } else {
+        console.log("이미지가 없습니다");
+      }
+
+      rightBtn.addEventListener("click", rightBtnHandler);
+
+      function rightBtnHandler() {
+        const currentSlide = document.querySelector(`.${SHOWING_CLASS}`);
+        const nextSlide = currentSlide.nextElementSibling;
+        if (nextSlide) {
+          currentSlide.classList.remove(SHOWING_CLASS);
+          nextSlide.classList.add(SHOWING_CLASS);
+        } else {
+          currentSlide.classList.remove(SHOWING_CLASS);
+          slideItems[0].classList.add(SHOWING_CLASS);
+        }
+      }
+    </script>
+  </body>
+</html>
